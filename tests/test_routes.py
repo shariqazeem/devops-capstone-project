@@ -1,6 +1,5 @@
 """
 Account API Service Test Suite
-
 Test cases can be run with the following:
   nosetests -v --with-spec --spec-color
   coverage report -m
@@ -167,4 +166,7 @@ class TestAccountService(TestCase):
 
     def test_account_not_found(self):
         resp = self.client.get(f"{BASE_URL}/0")
+
+        self.assertEqual(resp.status_code, status.HTTP_404_NOT_FOUND)
+=======
         self.assertEqual(resp.status_code, status.HTTP_404_NOT_FOUND)
